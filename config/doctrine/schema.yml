@@ -1,0 +1,16 @@
+pkRedirect:
+  columns:
+    url_from:
+      # 255-character limit allows simple uniqueness tests in Doctrine
+      # and MySQL, simple indexing in MySQL to work. Landing URLs with more
+      # than 255 characters after the URI prefix are ridiculous, you know.
+      type: string
+      length: 255
+      unique: true
+      notnull: true
+    url_to:
+      type: string
+      length: 1000
+      notnull: true
+    reason:
+      type: string

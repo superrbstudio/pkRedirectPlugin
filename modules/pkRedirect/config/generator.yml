@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           pkRedirect
+    theme:                 aAdmin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          pk_redirect
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields: ~
+      list:
+        title: Redirects
+        display:
+          - url_from
+          - url_to
+          - reason
+        sort: [ url_from, asc ]
+      filter:  ~
+      form:    ~
+      edit:
+        title: Edit Redirect
+      new:
+        title: New Redirect

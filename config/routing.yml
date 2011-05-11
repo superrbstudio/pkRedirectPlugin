@@ -1,0 +1,8 @@
+pk_redirect:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                pkRedirect
+    module:               pkRedirect
+    prefix_path:          /admin/redirect
+    column:               id
+    with_wildcard_routes: true

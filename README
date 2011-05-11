@@ -1,0 +1,35 @@
+A simple way to add redirects from URLs on your site to other URLs on your site or elsewhere.
+
+This plugin uses a Symfony filter class to implement the redirects, so they always "win" over other
+actions and routes on your site. 
+
+To enable this plugin:
+
+1. Add it to the list of enabled plugins in your ProjectConfiguration class.
+2. Enable the pkRedirect module in settings.yml.
+3. Add a new filter to the top of your filters.yml:
+
+# Comes first so nothing can trump it
+pkRedirect:
+  class: pkRedirectFilter
+
+4. If you are adding this to an existing site, generate a migrations diff BEFORE you
+rebuild your model classes:
+
+./symfony doctrine:generate-migrations-diff
+
+5. Check the resulting migration class in lib/migrations/doctrine, Doctrine migrations 
+generation has some bugs, make sure it doesn't drop all your tables (: (this has nothing
+to do with this plugin, but you should be careful)
+
+6. ./symfony doctrine:migrate
+
+7. ./symfony doctrine:build --all-classes
+
+8. ./symfony cc
+
+9. Add a link to the pk_redirect route somewhere
+
+10. Start adding and using redirects. 
+
+That's it!
